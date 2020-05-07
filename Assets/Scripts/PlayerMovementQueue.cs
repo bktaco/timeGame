@@ -28,7 +28,6 @@ public class PlayerMovementQueue : MonoBehaviour
         {
             
             var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            Debug.Log("Test");
             movementQueue.AddMove(x);
         }
 
@@ -45,10 +44,15 @@ public class PlayerMovementQueue : MonoBehaviour
         List<Vector2> moveList = movementQueue.GetMoveList();
         for (int i = 0; i < moveList.Count; i++)
         {
-            Debug.Log(moveList[i].x);
             rb.velocity = new Vector2(moveSpeed * moveList[i].x, moveList[i].y);
             yield return new WaitForSeconds(1);
         }
+        var clones = GameObject.FindGameObjectsWithTag("clone");
+        foreach (var clone in clones)
+        {
+            Destroy(clone);
+        }
+        movementQueue.ResetQueue();
 
     }
 }

@@ -18,6 +18,13 @@ public class UIMovement : MonoBehaviour
         _moveTemplate = _moveSlotContainer.Find("moveTemplate");
     }
 
+    public void ResetMovement()
+    {
+        x = 0;
+        y = 0;
+        GameObject.Destroy(_moveSlotContainer.GetChild(0));
+    }
+
     public void SetMovementQueue(MovementQueue movementQueue)
     {
         _movementQueue = movementQueue;
@@ -40,6 +47,7 @@ public class UIMovement : MonoBehaviour
         RectTransform moveRectTransform = Instantiate(_moveTemplate, _moveSlotContainer).GetComponent<RectTransform>();
         TextMeshProUGUI uiText = moveRectTransform.GetComponent<TextMeshProUGUI>();
         moveRectTransform.gameObject.SetActive(true);
+        moveRectTransform.tag = "clone";
 
         var move = _movementQueue.GetLatestMove();
 

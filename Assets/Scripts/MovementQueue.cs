@@ -14,6 +14,11 @@ public class MovementQueue
 		moveList = new List<Vector2>();
 	}
 
+	public void ResetQueue()
+	{
+		moveList.Clear();
+	}
+
 	public void AddMove(Vector2 moveDir)
 	{
 		moveList.Add(moveDir);
