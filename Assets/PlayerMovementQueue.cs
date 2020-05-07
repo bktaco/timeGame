@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class input : MonoBehaviour
+public class PlayerMovementQueue : MonoBehaviour
 {
-    List<float> nums = new List<float>();
-    List<Vector2> movement = new List<Vector2>();
+    private MovementQueue movementQueue;
+    public UIMovement uiMovement;
     private Rigidbody2D rb;
     private float moveSpeed = 5f;
+
+    private void Awake()
+    {
+        movementQueue = new MovementQueue();
+        uiMovement.SetMovementQueue(movementQueue);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,27 +24,29 @@ public class input : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
+        if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
         {
+            
             var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            movement.Add(x);
+            Debug.Log("Test");
+            movementQueue.AddMove(x);
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             StartCoroutine("PlayBack");
         }
     }
 
+
     IEnumerator PlayBack()
     {
-        for (int i = 0; i < movement.Count; i++)
+        List<Vector2> moveList = movementQueue.GetMoveList();
+        for (int i = 0; i < moveList.Count; i++)
         {
-            Debug.Log(movement[i].x);
-            rb.velocity = new Vector2(moveSpeed * movement[i].x, movement[i].y);
+            Debug.Log(moveList[i].x);
+            rb.velocity = new Vector2(moveSpeed * moveList[i].x, moveList[i].y);
             yield return new WaitForSeconds(1);
         }
 
