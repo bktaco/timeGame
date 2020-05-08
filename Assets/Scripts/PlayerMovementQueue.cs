@@ -8,6 +8,7 @@ public class PlayerMovementQueue : MonoBehaviour
     public UIMovement uiMovement;
     private Rigidbody2D rb;
     private float moveSpeed = 5f;
+    private float jumpSpeed = 5f;
 
     private void Awake()
     {
@@ -24,16 +25,31 @@ public class PlayerMovementQueue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
+
+        if (Input.GetKey(KeyCode.W))
         {
-            
-            var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            movementQueue.AddMove(x);
+            if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
+            {
+
+                var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                Debug.Log(x);
+                movementQueue.AddMove(x);
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
+            {
+
+                var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                Debug.Log(x);
+                movementQueue.AddMove(x);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
+
             StartCoroutine("PlayBack");
         }
     }
@@ -44,7 +60,7 @@ public class PlayerMovementQueue : MonoBehaviour
         List<Vector2> moveList = movementQueue.GetMoveList();
         for (int i = 0; i < moveList.Count; i++)
         {
-            rb.velocity = new Vector2(moveSpeed * moveList[i].x, moveList[i].y);
+            rb.velocity = new Vector2(moveSpeed * moveList[i].x, jumpSpeed * moveList[i].y);
             yield return new WaitForSeconds(1);
         }
         var clones = GameObject.FindGameObjectsWithTag("clone");

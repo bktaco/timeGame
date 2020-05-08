@@ -50,15 +50,30 @@ public class UIMovement : MonoBehaviour
         moveRectTransform.tag = "clone";
 
         var move = _movementQueue.GetLatestMove();
+        Debug.Log(move);
+        if (move.y != 0)
+        {
+            if (move.x < 0)
+            {
+                uiText.text = "Jump Left";
+            }
+            else if (move.x > 0)
+            {
+                uiText.text = "Jump Right";
+            }
+        } else
+        {
+             if(move.x < 0)
+                    {
+                        uiText.text = "Left";
+                    }
+                    else if (move.x > 0)
+                    {
+                        uiText.text = "Right";
+                    }
+        }
 
-        if(move.x < 0)
-        {
-            uiText.text = "Left";
-        }
-        else
-        {
-            uiText.text = "Right";
-        }
+       
         
 
         moveRectTransform.anchoredPosition = new Vector2(x * slotCellSize, y * slotCellSize);
