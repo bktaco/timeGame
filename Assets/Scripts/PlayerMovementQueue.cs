@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementQueue : MonoBehaviour
 {
-    private MovementQueue movementQueue;
     public UIMovement uiMovement;
+    public GameObject target;
+    
+    private MovementQueue movementQueue;
     private Rigidbody2D rb;
     private float moveSpeed = 5f;
     private float jumpSpeed = 5f;
@@ -32,7 +35,6 @@ public class PlayerMovementQueue : MonoBehaviour
             {
 
                 var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-                Debug.Log(x);
                 movementQueue.AddMove(x);
             }
         }
@@ -42,7 +44,6 @@ public class PlayerMovementQueue : MonoBehaviour
             {
 
                 var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-                Debug.Log(x);
                 movementQueue.AddMove(x);
             }
         }
@@ -53,7 +54,6 @@ public class PlayerMovementQueue : MonoBehaviour
             StartCoroutine("PlayBack");
         }
     }
-
 
     IEnumerator PlayBack()
     {
@@ -68,7 +68,17 @@ public class PlayerMovementQueue : MonoBehaviour
         {
             Destroy(clone);
         }
-        movementQueue.ResetQueue();
+
+        if(target.GetComponent<Target>().Triggered())
+        {
+            //SceneManager.LoadScene("Complete");
+        }
+        else
+        {
+            movementQueue.ResetQueue();
+        }
+        
+        
 
     }
 }

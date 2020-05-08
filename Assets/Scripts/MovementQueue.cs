@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementQueue
 {
@@ -17,6 +18,7 @@ public class MovementQueue
 	public void ResetQueue()
 	{
 		moveList.Clear();
+		//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public void AddMove(Vector2 moveDir)

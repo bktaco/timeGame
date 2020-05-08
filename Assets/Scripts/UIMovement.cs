@@ -50,7 +50,6 @@ public class UIMovement : MonoBehaviour
         moveRectTransform.tag = "clone";
 
         var move = _movementQueue.GetLatestMove();
-        Debug.Log(move);
         if (move.y != 0)
         {
             if (move.x < 0)
