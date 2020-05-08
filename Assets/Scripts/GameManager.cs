@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
 	public void StartGame()
 	{
 		UIManager.HidePlayButton();
-		UIManager.ShowUI();
 		LoadNextScene();
 	}
 

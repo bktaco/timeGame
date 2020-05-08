@@ -37,12 +37,4 @@ public class UIManager : MonoBehaviour
 		current.startButton.gameObject.SetActive(false);
 	}
 
-	public static void ShowUI()
-	{
-		//If there is no current UIManager, exit
-		if (current == null)
-			return;
-
-		current.gameUI.gameObject.SetActive(true);
-	}
 }
