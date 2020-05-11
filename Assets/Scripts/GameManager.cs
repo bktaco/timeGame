@@ -5,46 +5,59 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	static GameManager current;
+    static GameManager current;
 
-	private bool isGameOver;
+    private bool isGameOver;
 
+    private int _currentLevel = 0;
 
-	private void Awake()
-	{
-		//If a Game Manager exists and this isn't it...
-		if (current != null && current != this)
-		{
-			//...destroy this and exit. There can only be one Game Manager
-			Destroy(gameObject);
-			return;
-		}
+    public int currentLevel
+    {
+        get { return _currentLevel; }
+        set { _currentLevel = value; }
+    }
 
-		//Set this as the current game manager
-		current = this;
+    private void Awake()
+    {
+        //If a Game Manager exists and this isn't it...
+        if (current != null && current != this)
+        {
+            //...destroy this and exit. There can only be one Game Manager
+            Destroy(gameObject);
+            return;
+        }
 
-		//Persis this object between scene reloads
-		DontDestroyOnLoad(gameObject);
-	}
+        //Set this as the current game manager
+        current = this;
 
-	public void StartGame()
-	{
-		UIManager.HidePlayButton();
-		LoadNextScene();
-	}
+        //Persis this object between scene reloads
+        DontDestroyOnLoad(gameObject);
+    }
 
-	private void LoadNextScene()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-	}
+    public void StartGame()
+    {
+        UIManager.HidePlayButton();
+        LoadNextScene();
+    }
 
-	public static bool IsGameOver()
-	{
-		//If there is no current Game Manager, return false
-		if (current == null)
-			return false;
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(currentLevel + 1);
+        Debug.Log(currentLevel + 1);
+    }
 
-		//Return the state of the game
-		return current.isGameOver;
-	}
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public static bool IsGameOver()
+    {
+        //If there is no current Game Manager, return false
+        if (current == null)
+            return false;
+
+        //Return the state of the game
+        return current.isGameOver;
+    }
 }

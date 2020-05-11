@@ -7,7 +7,8 @@ public class PlayerMovementQueue : MonoBehaviour
 {
     public UIMovement uiMovement;
     public GameObject target;
-    
+
+    private GameManager gameManager;
     private MovementQueue movementQueue;
     private Rigidbody2D rb;
     private float moveSpeed = 5f;
@@ -23,6 +24,8 @@ public class PlayerMovementQueue : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
+        gameManager.currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
@@ -71,10 +74,13 @@ public class PlayerMovementQueue : MonoBehaviour
 
         if(target.GetComponent<Target>().Triggered())
         {
-            //SceneManager.LoadScene("Complete");
+            SceneManager.LoadScene("Complete");
+            
         }
         else
         {
+            SceneManager.LoadScene(gameManager.currentLevel);
+
             movementQueue.ResetQueue();
         }
         
