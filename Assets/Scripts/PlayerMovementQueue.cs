@@ -11,8 +11,8 @@ public class PlayerMovementQueue : MonoBehaviour
     private GameManager gameManager;
     private MovementQueue movementQueue;
     private Rigidbody2D rb;
-    private float moveSpeed = 5f;
-    private float jumpSpeed = 5f;
+    private float moveSpeed = 10f;
+    private float jumpSpeed = 15f;
 
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class PlayerMovementQueue : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
             {
 
-                var x = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                var x = new Vector2(Input.GetAxisRaw("Horizontal") / 2, Input.GetAxisRaw("Vertical"));
                 movementQueue.AddMove(x);
             }
         }
