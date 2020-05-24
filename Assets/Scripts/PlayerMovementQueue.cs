@@ -64,6 +64,18 @@ public class PlayerMovementQueue : MonoBehaviour
         for (int i = 0; i < moveList.Count; i++)
         {
             rb.velocity = new Vector2(moveSpeed * moveList[i].x, jumpSpeed * moveList[i].y);
+
+            Vector3 charScale = transform.localScale;
+            if (rb.velocity.x < 0)
+            {
+                charScale.x = -1;
+                transform.localScale = charScale;
+            }
+            else
+            {
+                charScale.x = 1;
+                transform.localScale = charScale;
+            }
             yield return new WaitForSeconds(1);
         }
         var clones = GameObject.FindGameObjectsWithTag("clone");
