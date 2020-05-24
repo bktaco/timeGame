@@ -13,6 +13,7 @@ public class PlayerMovementQueue : MonoBehaviour
     private Rigidbody2D rb;
     private float moveSpeed = 10f;
     private float jumpSpeed = 15f;
+    private bool isRunning = false;
 
     private void Awake()
     {
@@ -53,8 +54,18 @@ public class PlayerMovementQueue : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
-            StartCoroutine("PlayBack");
+            if(isRunning == false)
+            {
+                isRunning = true;
+                StartCoroutine("PlayBack");
+            }
+            else
+            {
+                isRunning = false;
+                SceneManager.LoadScene(gameManager.currentLevel);
+                movementQueue.ResetQueue();
+            }
+            
         }
     }
 

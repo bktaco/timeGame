@@ -65,7 +65,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "D : \t\tPlan move to the right\nA : \t\tPlan move to the left\nW :\t\tHold
-    and press left/right to jump\nSpace :\tExecute plan"
+    and press left/right to jump\nSpace :\tExecute plan / Reset while moving"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -131,13 +131,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -645.8593, w: 0}
+  m_margin: {x: 0, y: 0, z: -784.7248, w: 0}
   m_textInfo:
     textComponent: {fileID: 1794579660}
-    characterCount: 116
+    characterCount: 137
     spriteCount: 0
-    spaceCount: 30
-    wordCount: 23
+    spaceCount: 34
+    wordCount: 26
     linkCount: 0
     lineCount: 4
     pageCount: 1
