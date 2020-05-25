@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Backrgound
+  - Platforms
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 4042938617
+    locked: 0
+  - name: platform
+    uniqueID: 489263273
+    locked: 0
+  - name: Target
+    uniqueID: 3173527103
+    locked: 0
+  - name: Player
+    uniqueID: 1736415969
     locked: 0
