@@ -76,6 +76,8 @@ public class PlayerMovementQueue : MonoBehaviour
         {
             rb.velocity = new Vector2(moveSpeed * moveList[i].x, jumpSpeed * moveList[i].y);
 
+            AudioManager.PlayStepSound();
+
             Vector3 charScale = transform.localScale;
             if (rb.velocity.x < 0)
             {
