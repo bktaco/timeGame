@@ -223,7 +223,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7ef3c72c8c98246439f51093a6c0e592, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -244,12 +244,12 @@ SpriteRenderer:
   m_SortingLayerID: 489263273
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6269f8f6c469fbb489b9fadaee86e0e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a76265921cedb0644b474dac5cab7ddf, type: 3}
   m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_DrawMode: 2
+  m_Size: {x: 35.128334, y: 1.4996475}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -263,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418209057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.5, z: 0}
+  m_LocalPosition: {x: -0.042, y: -7.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -282,18 +282,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.555727, y: -0.12843966}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 1}
-    newSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 35.128334, y: 1.4996475}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 32, y: 1}
+  m_Size: {x: 36.702343, y: 1.1706061}
   m_EdgeRadius: 0
 --- !u!114 &892240255 stripped
 MonoBehaviour:
@@ -412,7 +412,7 @@ PrefabInstance:
     - target: {fileID: 235377972415431841, guid: 9859afe934337f74b91eb5240cf86701,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.97
+      value: -6.18
       objectReference: {fileID: 0}
     - target: {fileID: 235377972415431841, guid: 9859afe934337f74b91eb5240cf86701,
         type: 3}
